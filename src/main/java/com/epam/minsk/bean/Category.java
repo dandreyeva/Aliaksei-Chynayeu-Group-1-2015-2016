@@ -1,5 +1,5 @@
 package com.epam.minsk.bean;
 
-public enum RecipeCategory {
+public enum Category {
 	DINNER, LUNCH, BREAKFAST, DRINK, SWEETS, BAKE
 }

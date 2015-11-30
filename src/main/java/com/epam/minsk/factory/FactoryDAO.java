@@ -1,9 +1,10 @@
 package com.epam.minsk.factory;
 
-import com.epam.minsk.dao.ComponentDAO;
-import com.epam.minsk.dao.RecipeDAO;
+import com.epam.minsk.dao.IComponentEntityDAO;
+
 
 public interface FactoryDAO {
-	RecipeDAO getRecipeDAO();
-	ComponentDAO getComponentDAO();
+
+	IComponentEntityDAO getComponentEntityDAO();
+	
 }

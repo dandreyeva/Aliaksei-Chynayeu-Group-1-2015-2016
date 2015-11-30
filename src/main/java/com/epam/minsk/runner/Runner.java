@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-import com.epam.minsk.xml.analyzer.ComponentAnalyzerSAX;
+import com.epam.minsk.xml.analyzer.IngredientAnalyzerSAX;
 import com.epam.minsk.xml.analyzer.RecipeAnalyzerSAX;
 
 public class Runner {
@@ -16,10 +16,10 @@ public class Runner {
 			XMLReader readerRecipe = org.xml.sax.helpers.XMLReaderFactory.createXMLReader();
 			XMLReader readerComponent = org.xml.sax.helpers.XMLReaderFactory.createXMLReader();
 			RecipeAnalyzerSAX recipeSax = new RecipeAnalyzerSAX();
-			ComponentAnalyzerSAX componentSAX = new ComponentAnalyzerSAX();
+			IngredientAnalyzerSAX componentSAX = new IngredientAnalyzerSAX();
 			readerRecipe.setContentHandler(recipeSax);
 			readerRecipe.parse("recipe.xml");
-			readerComponent.setContentHandler(recipeSax);
+			readerComponent.setContentHandler(componentSAX);
 			readerComponent.parse("component.xml");
 		} catch (SAXException e) {
 			e.printStackTrace();
@@ -28,6 +28,7 @@ public class Runner {
 			e.printStackTrace();
 			System.out.print("I/О exception");
 		}
+		System.out.print("success");
 	}
 
 }

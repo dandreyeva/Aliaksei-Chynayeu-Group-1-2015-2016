@@ -8,9 +8,9 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
-import com.epam.minsk.bean.Component;
+import com.epam.minsk.bean.Ingredient;
 import com.epam.minsk.bean.Recipe;
-import com.epam.minsk.bean.RecipeCategory;
+import com.epam.minsk.bean.Category;
 
 public class RecipeAnalyzerSAX implements ContentHandler {
 	
@@ -30,16 +30,13 @@ public class RecipeAnalyzerSAX implements ContentHandler {
 		case RECIPE: {
 			String s = "";
 			for (int i = 0; i < atts.getLength(); i++) {
-				s += atts.getValue(i) + " ";
+				s += atts.getValue(i);
 			}
-			recipe = new Recipe(Long.valueOf((s)));
+			recipe = new Recipe(new Long(s));
 		} break;
 		case NAME:{
 			tagName = 'n';
 		} break;
-	//	case COMPONENTS:{
-		//	tagName = 'C';
-	//	} break;
 		case COMPONENT:{
 			tagName = 'c';
 		} break;
@@ -67,13 +64,9 @@ public class RecipeAnalyzerSAX implements ContentHandler {
 			recipe.setName(new String(ch,start,length));
 			tagName='0';
 			}break;
-	//	case 'C':{
-		//	recipe.setOrigin(new String(ch,start,length));
-			//tagName='0';
-		//	}break;
 		case 'c':{
 			String s = new String(ch,start,length);
-			recipe.getComponentList().add(new Component(Long.valueOf((s))));
+			recipe.getComponentList().add(new Ingredient(Long.valueOf((s))));
 			tagName='0';
 			}break;
 		case 'r':{
@@ -89,7 +82,7 @@ public class RecipeAnalyzerSAX implements ContentHandler {
 			tagName='0';
 			}break;
 		case 'K':{
-			recipe.setCategory(RecipeCategory.valueOf(new String(ch,start,length).toUpperCase()));
+			recipe.getCategoryList().add((Category.valueOf(new String(ch,start,length).toUpperCase())));
 			tagName='0';
 			}break;
 		}	

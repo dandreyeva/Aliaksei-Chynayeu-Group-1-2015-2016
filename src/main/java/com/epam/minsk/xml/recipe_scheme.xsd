@@ -31,15 +31,10 @@
     
     <complexType name="Components">
         <sequence>
-         	<element name="component" type="tns:Component" minOccurs="1" maxOccurs="unbounded" />   
+         	<element name="component" type="integer" minOccurs="1" maxOccurs="unbounded" />   
         </sequence>
     </complexType>
     
-    <simpleType name="Component">
-        <restriction base="integer">
-        </restriction>
-    </simpleType>
-
     <simpleType name="RecipeCategory">
         <restriction base="string">
             <enumeration value="DINNER" />

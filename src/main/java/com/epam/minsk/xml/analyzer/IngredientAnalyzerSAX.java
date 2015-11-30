@@ -8,18 +8,18 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
-import com.epam.minsk.bean.Component;
+import com.epam.minsk.bean.Ingredient;
 import com.epam.minsk.bean.MeasureUnit;;
 
-public class ComponentAnalyzerSAX implements ContentHandler {
+public class IngredientAnalyzerSAX implements ContentHandler {
 	
-	private List<Component> componentList;
-	private Component component;
+	private List<Ingredient> componentList;
+	private Ingredient component;
 	private char tagName;
 
 	@Override
 	public void startDocument() throws SAXException {
-		componentList = new ArrayList<Component>();		
+		componentList = new ArrayList<Ingredient>();		
 	}
 	
 	@Override
@@ -31,9 +31,9 @@ public class ComponentAnalyzerSAX implements ContentHandler {
 		case COMPONENT: {
 			String s = "";
 			for (int i = 0; i < atts.getLength(); i++) {
-				s += atts.getValue(i) + " ";
+				s += atts.getValue(i);
 			}
-			component = new Component(Long.valueOf((s)));
+			component = new Ingredient(Long.valueOf((s)));
 		} break;
 		case NAME:{
 			tagName = 'n';

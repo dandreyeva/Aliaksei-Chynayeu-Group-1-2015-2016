@@ -1,38 +1,38 @@
-package com.epam.minsk.daoxml;
+package com.epam.minsk.dao;
 
 import java.util.List;
 
-import com.epam.minsk.bean.Recipe;
-import com.epam.minsk.dao.RecipeDAO;
+import com.epam.minsk.bean.Ingredient;
+import com.epam.minsk.dao.IComponentEntityDAO;
 
-public class RecipeDAOXML implements RecipeDAO {
+public class ComponentEntityDAOXML  implements IComponentEntityDAO {
 
 	@Override
-	public List<Recipe> findAll() {
+	public List<Ingredient> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean createRecipe() {
+	public boolean create() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateRecipe() {
+	public boolean update() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteRecipe() {
+	public boolean delete() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Recipe find() {
+	public Ingredient find() {
 		// TODO Auto-generated method stub
 		return null;
 	}

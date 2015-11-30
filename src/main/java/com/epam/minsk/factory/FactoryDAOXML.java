@@ -1,20 +1,14 @@
 package com.epam.minsk.factory;
 
-import com.epam.minsk.dao.ComponentDAO;
-import com.epam.minsk.dao.RecipeDAO;
-import com.epam.minsk.daoxml.ComponentDAOXML;
-import com.epam.minsk.daoxml.RecipeDAOXML;
+import com.epam.minsk.dao.ComponentEntityDAOXML;
+import com.epam.minsk.dao.IComponentEntityDAO;
+
 
 public class FactoryDAOXML implements FactoryDAO {
 
 	@Override
-	public RecipeDAO getRecipeDAO() {
-		return new RecipeDAOXML();
-	}
-
-	@Override
-	public ComponentDAO getComponentDAO() {
-		return new ComponentDAOXML();
+	public IComponentEntityDAO getComponentEntityDAO() {
+		return new ComponentEntityDAOXML();
 	}
 
 }
