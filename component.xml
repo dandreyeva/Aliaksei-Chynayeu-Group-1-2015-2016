@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tns:components xmlns:tns="http://www.example.org/component" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/component component_scheme.xsd ">
-  <component id="1">
-    <name>flour</name>
-    <measure>GRAMM</measure>
-    <quantity>1000</quantity>
-  </component>
-</tns:components>

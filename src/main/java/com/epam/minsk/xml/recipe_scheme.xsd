@@ -13,7 +13,7 @@
     <complexType name="Recipe">
         <sequence>
             <element name="name" type="string" />
-            <element name="components" type="tns:Components" />
+            <element name="ingredients" type="tns:Ingredients" />
             <element name="rating" type="tns:Rating" />
             <element name="comment" type="string" />
             <element name="description" type="string" />
@@ -29,9 +29,9 @@
         </restriction>
     </simpleType>
     
-    <complexType name="Components">
+    <complexType name="Ingredients">
         <sequence>
-         	<element name="component" type="integer" minOccurs="1" maxOccurs="unbounded" />   
+         	<element name="ingredient" type="integer" minOccurs="1" maxOccurs="unbounded" />   
         </sequence>
     </complexType>
     

@@ -8,18 +8,19 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
+import com.epam.minsk.bean.ComponentEntity;
 import com.epam.minsk.bean.Ingredient;
 import com.epam.minsk.bean.Recipe;
 import com.epam.minsk.bean.Category;
 
 public class RecipeAnalyzerSAX implements ContentHandler {
 	
-	private List<Recipe> recipeList;
+	private List<ComponentEntity> recipeList;
 	private Recipe recipe;
 	private char tagName;
 	
 	public void startDocument() throws SAXException {
-		recipeList = new ArrayList<Recipe>();
+		recipeList = new ArrayList<ComponentEntity>();
 	}
 	
 	public void startElement(String uri, String localName, String qName,
@@ -37,7 +38,7 @@ public class RecipeAnalyzerSAX implements ContentHandler {
 		case NAME:{
 			tagName = 'n';
 		} break;
-		case COMPONENT:{
+		case INGREDIENT:{
 			tagName = 'c';
 		} break;
 		case RATING:{
@@ -138,6 +139,10 @@ public class RecipeAnalyzerSAX implements ContentHandler {
 			throws SAXException {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public List<ComponentEntity> getRecipeList() {
+		return recipeList;
 	}
 
 }

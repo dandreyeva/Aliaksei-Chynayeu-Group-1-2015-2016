@@ -2,14 +2,14 @@ package com.epam.minsk.dao;
 
 import java.util.List;
 
-import com.epam.minsk.bean.Ingredient;
+import com.epam.minsk.bean.ComponentEntity;
 
 public interface IComponentEntityDAO {
 	
-	List<Ingredient> findAll();
+	List<ComponentEntity> findAll();
 	boolean create();
 	boolean update();
 	boolean delete();
-	Ingredient find();
+	ComponentEntity find();
 
 }

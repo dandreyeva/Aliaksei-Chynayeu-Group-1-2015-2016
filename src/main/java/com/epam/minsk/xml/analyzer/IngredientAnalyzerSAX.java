@@ -8,32 +8,33 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
+import com.epam.minsk.bean.ComponentEntity;
 import com.epam.minsk.bean.Ingredient;
 import com.epam.minsk.bean.MeasureUnit;;
 
 public class IngredientAnalyzerSAX implements ContentHandler {
 	
-	private List<Ingredient> componentList;
-	private Ingredient component;
+	private List<ComponentEntity> ingredienttList;
+	private Ingredient ingredient;
 	private char tagName;
 
 	@Override
 	public void startDocument() throws SAXException {
-		componentList = new ArrayList<Ingredient>();		
+		ingredienttList = new ArrayList<ComponentEntity>();		
 	}
 	
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes atts) throws SAXException {
-		if (qName.equals("tns:components")){}
+		if (qName.equals("tns:ingredients")){}
 		else{
 		switch (TagName.valueOf(qName.toUpperCase())){
-		case COMPONENT: {
+		case INGREDIENT: {
 			String s = "";
 			for (int i = 0; i < atts.getLength(); i++) {
 				s += atts.getValue(i);
 			}
-			component = new Ingredient(Long.valueOf((s)));
+			ingredient = new Ingredient(Long.valueOf((s)));
 		} break;
 		case NAME:{
 			tagName = 'n';
@@ -53,15 +54,15 @@ public class IngredientAnalyzerSAX implements ContentHandler {
 			throws SAXException {
 		switch (tagName){
 		case 'n':{
-			component.setName(new String(ch,start,length));
+			ingredient.setName(new String(ch,start,length));
 			tagName='0';
 			}break;
 		case 'm':{
-			component.setMesureUnit(MeasureUnit.valueOf(new String(ch,start,length)));
+			ingredient.setMesureUnit(MeasureUnit.valueOf(new String(ch,start,length)));
 			tagName='0';
 			}break;
 		case 'q':{
-			component.setQuantity(Double.valueOf(new String(ch,start,length)));
+			ingredient.setQuantity(Double.valueOf(new String(ch,start,length)));
 			tagName='0';
 			}break;
 		}	
@@ -72,7 +73,7 @@ public class IngredientAnalyzerSAX implements ContentHandler {
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
 		if ("component".equals(qName)){
-			componentList.add(component);
+			ingredienttList.add(ingredient);
 		}		
 	}
 	
@@ -119,6 +120,10 @@ public class IngredientAnalyzerSAX implements ContentHandler {
 			throws SAXException {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public List<ComponentEntity> getIngredientList() {
+		return ingredienttList;
 	}
 
 }

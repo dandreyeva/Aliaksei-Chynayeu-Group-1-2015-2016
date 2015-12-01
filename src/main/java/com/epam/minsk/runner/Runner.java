@@ -20,7 +20,7 @@ public class Runner {
 			readerRecipe.setContentHandler(recipeSax);
 			readerRecipe.parse("recipe.xml");
 			readerComponent.setContentHandler(componentSAX);
-			readerComponent.parse("component.xml");
+			readerComponent.parse("ingredient.xml");
 		} catch (SAXException e) {
 			e.printStackTrace();
 			System.out.print("error of SAX");
